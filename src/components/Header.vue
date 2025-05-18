@@ -1,20 +1,32 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
+import { useAuthStore } from '@/stores/auth'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+const handleLogout = () => {
+  authStore.logout()
+  router.push('/login')
+}
 </script>
 
 <template>
   <header>
-    <RouterLink to="/" class="logo-ctn">
+    <RouterLink to="/app/home" class="logo-ctn">
         <p class="logo">Carte</p>
     </RouterLink>
     <nav class="navBar">
         <p>Niveau</p>
         <div class="btn">
-            <RouterLink to="/facile" class="facile"><button>FACILE</button></RouterLink>
-            <RouterLink to="/moyen" class="moyen"><button>Moyen</button></RouterLink>
-            <RouterLink to="/difficile" class="difficile"><button>DIFFICILE</button></RouterLink>
-            <RouterLink to="/profil" class="profil"><button>PROFIL</button></RouterLink>
+            <RouterLink to="/app/facile" class="facile"><button>FACILE</button></RouterLink>
+            <RouterLink to="/app/moyen" class="moyen"><button>Moyen</button></RouterLink>
+            <RouterLink to="/app/difficile" class="difficile"><button>DIFFICILE</button></RouterLink>
+            <RouterLink to="/app/profil" class="profil"><button>PROFIL</button></RouterLink>
         </div>
+        <button @click="handleLogout" class="logout-btn">
+            <img src="../assets/svg/Deconnexion.svg" alt="">
+        </button>
     </nav>
   </header>
 </template>
@@ -26,10 +38,9 @@ import { RouterLink } from 'vue-router';
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background-color: #00001A;
+        background-color: #191919ea;
         height: 15vh;
         width: 100vw;
-        box-shadow: 0px 5px 5px rgba(67, 187, 196, 0.637);
         color: aliceblue;
         width: 100%;
     }
@@ -49,7 +60,7 @@ import { RouterLink } from 'vue-router';
     .navBar {
         display: flex;
         align-items: center;
-        width: 30%;
+        width: 40%;
         gap: 1em;
         margin-right: 2em;
     }
@@ -95,6 +106,21 @@ import { RouterLink } from 'vue-router';
         padding-top: 1.4em;
         grid-column: 3;
         grid-row: 1 / span 2;
+    }
+
+    .logout-btn {
+        margin-left: 1em;
+        padding: 0.5em 1em;
+        background-color: #ff4444;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .logout-btn:hover {
+        background-color: #ff0000;
     }
 
 </style>

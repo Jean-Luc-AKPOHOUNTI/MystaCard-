@@ -6,10 +6,8 @@
 
 <template>
   <div class="container">
-    <Header/>
-    <keep-alive include="Home,Facile,Moyen,Difficile,Profil">
-      <RouterView />
-    </keep-alive>
+    
+    <RouterView />
     
   </div>
 </template>
