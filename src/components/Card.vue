@@ -48,7 +48,7 @@ const checkAnswer = () => {
     <slot name="default">
       <!-- On cache l'image si la réponse n'est pas correcte -->
       <div class="image-container">
-        <img :src="image.src" alt="image" :class="{ 'hidden': !isCorrect }">
+        <img :src="image.src" @error="e => e.target.src = '/src/assets/Mages/default.png'" alt="image" :class="{ 'hidden': !isCorrect }">
         <div v-if="!isCorrect" class="mystery">
           {{ image.description }}
         </div>

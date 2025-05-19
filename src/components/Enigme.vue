@@ -48,7 +48,7 @@ const checkAnswer = () => {
     <slot name="default">
       <!-- On cache l'image si la réponse n'est pas correcte -->
       <div class="image-container">
-        <img :src="enigme.src" alt="image" :class="{ 'hidden': !isCorrect }">
+        <img :src="enigme.src" @error="e => e.target.src = '/src/assets/enigmeMages/default.png'" alt="image" :class="{ 'hidden': !isCorrect }">
         <div v-if="!isCorrect" class="mystery">
           {{ enigme.description }}
         </div>
@@ -79,7 +79,7 @@ const checkAnswer = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to top, #373737, rgb(0, 0, 0));
+  background: linear-gradient(to top, #e6dcdc, rgb(83, 76, 76));
   border-radius: 1em;
   background-image: url('../assets/enigmeMages/back.png');
   background-size: 100% 100%;
@@ -108,7 +108,7 @@ const checkAnswer = () => {
 }
 
 .carte.correct {
-  background-color: rgba(47, 33, 20, 0.804);
+  background-color: rgb(182, 162, 153);
 }
 
 .image-container {

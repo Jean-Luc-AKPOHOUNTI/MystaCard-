@@ -98,6 +98,30 @@ export const animeCards = [
   { name: "Saitama", src: "/src/assets/Mages/Saitama.png", description: "Le héros chauve invincible.", mangaName: "One Punch Man" }
 ];
 
+// Cartes Anime Niveau Moyen (Sélection)
+export const animeCardsMoyen = [
+  { name: 'Goku', src: '/src/assets/Mages/Goku.png', description: 'Le guerrier Saiyan légendaire.', mangaName: 'Dragon Ball Z' },
+  { name: 'Naruto Uzumaki', src: '/src/assets/Mages/naruto.png', description: 'Le ninja qui rêve de devenir Hokage.', mangaName: 'Naruto' },
+  { name: 'Luffy', src: '/src/assets/Mages/Luffy.png', description: 'Le pirate au chapeau de paille.', mangaName: 'One Piece' },
+  { name: 'Ichigo Kurosaki', src: '/src/assets/Mages/Kurosaki-Ichigo.png', description: 'Le shinigami remplaçant.', mangaName: 'Bleach' },
+  { name: 'Edward Elric', src: '/src/assets/Mages/edward.png', description: 'L\'alchimiste de métal.', mangaName: 'Fullmetal Alchemist' },
+  { name: 'Saitama', src: '/src/assets/Mages/Saitama.png', description: 'Le héros chauve pour le fun.', mangaName: 'One Punch Man' },
+  { name: 'Gon Freecss', src: '/src/assets/Mages/Gon.png', description: 'Le jeune Hunter à la recherche de son père.', mangaName: 'Hunter x Hunter' },
+  { name: 'Light Yagami', src: '/src/assets/Mages/Light.png', description: 'Le détenteur du Death Note.', mangaName: 'Death Note' },
+  { name: 'Tanjiro Kamado', src: '/src/assets/Mages/Kamado.png', description: 'Le pourfendeur de démons au grand cœur.', mangaName: 'Demon Slayer' },
+  { name: 'Natsu Dragneel', src: '/src/assets/Mages/Natsu.png', description: 'Le chasseur de dragons de feu.', mangaName: 'Fairy Tail' },
+  { name: 'Eren Yeager', src: '/src/assets/Mages/Eren.png', description: 'Le porteur du Titan Assaillant.', mangaName: 'L\'Attaque des Titans' },
+  { name: 'Killua Zoldyck', src: '/src/assets/Mages/Killua.png', description: 'L\'assassin prodige.', mangaName: 'Hunter x Hunter' },
+  { name: 'Sasuke Uchiha', src: '/src/assets/Mages/sasuke1.png', description: 'Le dernier héritier du clan Uchiha.', mangaName: 'Naruto' },
+  { name: 'Vegeta', src: '/src/assets/Mages/Vegeta.png', description: 'Le prince des Saiyans.', mangaName: 'Dragon Ball Z' },
+  { name: 'Shoto Todoroki', src: '/src/assets/Mages/Todoroki.png', description: 'Le héros à la glace et au feu.', mangaName: 'My Hero Academia' },
+  { name: 'Bakugo Katsuki', src: '/src/assets/Mages/Bakugo.png', description: 'Le héros explosif.', mangaName: 'My Hero Academia' },
+  { name: 'Levi Ackerman', src: '/src/assets/Mages/Levi.png', description: 'Le caporal le plus fort de l\'humanité.', mangaName: 'L\'Attaque des Titans' },
+  { name: 'Mikasa Ackerman', src: '/src/assets/Mages/Mikasa.png', description: 'La protectrice d\'Eren.', mangaName: 'L\'Attaque des Titans' },
+  { name: 'All Might', src: '/src/assets/Mages/AllMight.png', description: 'Le symbole de la paix.', mangaName: 'My Hero Academia' },
+  { name: 'Trafalgar Law', src: '/src/assets/Mages/Traffy.png', description: 'Le chirurgien de la mort.', mangaName: 'One Piece' }
+];
+
 // Cartes Énigmes
 export const enigmeCards = [
   { name: 'Le feu', src: '/src/assets/enigmeMages/feu.png', description: 'Je peux réchauffer ou détruire, je danse et je brille, qui suis-je ?' },

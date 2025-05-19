@@ -9,6 +9,9 @@ import img3 from '../assets/loginMages/3.png';
 import img4 from '../assets/loginMages/4.png';
 import img5 from '../assets/loginMages/5.png';
 import img6 from '../assets/loginMages/6.png';
+import img7 from '../assets/loginMages/7.png';
+import img8 from '../assets/loginMages/8.png';
+import img9 from '../assets/loginMages/9.png';
 
 let mages = ref([
   { name: '1', src: img1 },
@@ -17,6 +20,9 @@ let mages = ref([
   { name: '4', src: img4 },
   { name: '5', src: img5 },
   { name: '6', src: img6 },
+  { name: '7', src: img7 },
+  { name: '8', src: img8 },
+  { name: '9', src: img9 },
 ]);
 const currentIndex = ref(0);
 let intervalId = null;
