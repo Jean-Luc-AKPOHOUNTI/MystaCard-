@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useCardsStore } from '@/stores/cards';
+import { Icon } from '@iconify/vue';
 
 const props = defineProps({
   enigme: {
@@ -58,7 +59,9 @@ const checkAnswer = () => {
       <div v-if="!isCorrect">
         <form @submit.prevent="checkAnswer">
           <input type="text" v-model="userInput" :disabled="isCorrect" placeholder="Qui est-ce ?">
-          <button type="submit" :disabled="isCorrect">&Sqrt;</button>
+          <button type="submit" :disabled="isCorrect">
+            <Icon icon="mdi:check-circle" width="24" height="24" />
+          </button>
         </form>
       </div>
       <div v-else class="success-message">
@@ -71,7 +74,7 @@ const checkAnswer = () => {
 <style scoped>
 .carte {
   margin-top: 1em;
-  height: 70vh;
+  min-height: 55vh;
   border: 1px solid;
   width: 20vw;
   margin-inline: .5em;
@@ -79,7 +82,7 @@ const checkAnswer = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to top, #e6dcdc, rgb(83, 76, 76));
+  background: linear-gradient(to top, #373737, rgb(0, 0, 0));
   border-radius: 1em;
   background-image: url('../assets/enigmeMages/back.png');
   background-size: 100% 100%;
@@ -87,7 +90,6 @@ const checkAnswer = () => {
   background-repeat: no-repeat;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-style: preserve-3d;
-  /* Active les transformations 3D */
 
 }
 
@@ -108,7 +110,7 @@ const checkAnswer = () => {
 }
 
 .carte.correct {
-  background-color: rgb(182, 162, 153);
+  background: linear-gradient(to bottom, #3f4450, #929393);
 }
 
 .image-container {
@@ -151,6 +153,7 @@ form {
 
 form input {
   width: 70%;
+  padding: 0.5em;
   height: 100%;
   font-weight: bold;
   font-family: cursive;

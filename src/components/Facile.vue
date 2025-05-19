@@ -501,7 +501,7 @@ button:hover {
 }
 
 .audio-controls {
-    position: fixed;
+    /* position: fixed; */
     top: 20px;
     right: 20px;
     display: flex;

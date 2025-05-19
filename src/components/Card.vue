@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useCardsStore } from '@/stores/cards';
+import { Icon } from '@iconify/vue';
 
 const props = defineProps({
   image: {
@@ -58,7 +59,9 @@ const checkAnswer = () => {
       <div v-if="!isCorrect">
         <form @submit.prevent="checkAnswer">
           <input type="text" v-model="userInput" :disabled="isCorrect" placeholder="Qui est-ce ?">
-          <button type="submit" :disabled="isCorrect">&Sqrt;</button>
+          <button type="submit" :disabled="isCorrect">
+            <Icon icon="mdi:check-circle" width="24" height="24" />
+          </button>
         </form>
       </div>
       <div v-else class="success-message">
@@ -80,15 +83,14 @@ const checkAnswer = () => {
 
 .carte {
   margin-top: 1em;
-  height: 70vh;
-  border: 1px solid gray;
+  min-height: 55vh;
+  border: 1px solid;
   width: 20vw;
   margin-inline: .5em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   background: linear-gradient(to top, #373737, rgb(0, 0, 0));
   border-radius: 1em;
   background-image: url('../assets/Mages/background.png');
@@ -97,8 +99,6 @@ const checkAnswer = () => {
   background-repeat: no-repeat;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-style: preserve-3d;
-  /* Active les transformations 3D */
-
 }
 
 .carte:hover {
@@ -161,7 +161,7 @@ form {
 
 form input {
   width: 70%;
-  height: 100%;
+  padding: 0.5em;
   font-weight: bold;
   font-family: cursive;
   text-align: center;

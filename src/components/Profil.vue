@@ -173,7 +173,7 @@ const enigmeStats = computed(() => ({
 
 .profile-info h1 {
   font-size: 2.5em;
-  color: #ffd700;
+  color: #ffffee;
   margin: 0;
 }
 
@@ -282,7 +282,7 @@ const enigmeStats = computed(() => ({
 
 .manga-header h3 {
   margin: 0;
-  color: #ffd700;
+  color: #ffffee;
 }
 
 .manga-count {

@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/auth'
+import { Icon } from '@iconify/vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -12,177 +13,258 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <header>
-    <RouterLink to="/app/home" class="logo-ctn">
-        <p class="logo">Carte</p>
-    </RouterLink>
-    <nav class="navBar">
-        <p class="niveau-text">Niveau</p>
-        <div class="btn">
-            <RouterLink to="/app/facile" class="nav-button"><button>FACILE</button></RouterLink>
-            <RouterLink to="/app/moyen" class="nav-button"><button>Moyen</button></RouterLink>
-            <RouterLink to="/app/difficile" class="nav-button"><button>DIFFICILE</button></RouterLink>
-            <RouterLink to="/app/profil" class="nav-button"><button>PROFIL</button></RouterLink>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-container">
+        <RouterLink to="/app/home" class="logo">
+          <Icon 
+            icon="mdi:cards-playing-outline" 
+            class="card-icon"
+          />
+          <span class="logo-text">
+            <span class="mysta">Mysta</span>
+            <span class="card">Card</span>
+          </span>
+        </RouterLink>
+      </div>
+      
+      <nav class="navigation">
+        <RouterLink to="/app/home" class="nav-item">
+          <Icon icon="mdi:home" />
+          <span>Accueil</span>
+        </RouterLink>
+        
+        <div class="difficulty-menu">
+          <button class="nav-item difficulty-btn">
+            <Icon icon="mdi:cards" />
+            <span>Quiz</span>
+            <Icon icon="mdi:chevron-down" class="chevron" />
+          </button>
+          <div class="difficulty-dropdown">
+            <RouterLink to="/app/facile" class="difficulty-item">
+              <Icon icon="mdi:star-outline" />
+              <span>Facile</span>
+            </RouterLink>
+            <RouterLink to="/app/moyen" class="difficulty-item">
+              <Icon icon="mdi:star-outline" />
+              <Icon icon="mdi:star-outline" />
+              <span>Moyen</span>
+            </RouterLink>
+            <RouterLink to="/app/difficile" class="difficulty-item">
+              <Icon icon="mdi:star-outline" />
+              <Icon icon="mdi:star-outline" />
+              <Icon icon="mdi:star-outline" />
+              <span>Difficile</span>
+            </RouterLink>
+          </div>
         </div>
-        <button @click="handleLogout" class="logout-btn">
-            <img src="../assets/svg/Deconnexion.svg" alt="">
+
+        <RouterLink to="/app/profil" class="nav-item">
+          <Icon icon="mdi:trophy" />
+          <span>Scores</span>
+        </RouterLink>
+
+        <button @click="handleLogout" class="nav-item logout-btn">
+          <Icon icon="mdi:logout" />
+          <span>Déconnexion</span>
         </button>
-    </nav>
+      </nav>
+    </div>
   </header>
 </template>
 
 <style scoped>
-    header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #191919ea;
-        height: 15vh;
-        width: 100%;
-        color: aliceblue;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+.header {
+  background-color: #1E1E2F;
+  height: 90px;
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .logo {
-        font-family: 'OldeEnglish';
-        font-size: 3em;
-        font-style: italic;
-        color: rgb(255, 255, 255);
-        padding-inline: 1em;
-        margin: 0;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .logo-ctn {
-        text-decoration: none;
-        transition: transform 0.3s ease;
-    }
+.logo-container {
+  display: flex;
+  align-items: center;
+}
 
-    .logo-ctn:hover {
-        transform: scale(1.05);
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-    .navBar {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
-        justify-content: flex-end;
-        gap: 1em;
-        margin-right: 1em;
-    }
+.logo:hover {
+  transform: translateY(-2px);
+}
 
-    .niveau-text {
-        font-family: cursive;
-        font-size: 1.5em;
-        margin: 0;
-        color: #29ff97;
-        flex-shrink: 0;
-    }
+.card-icon {
+  color: #6C5CE7;
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
 
-    .btn {
-        display: flex;
-        gap: 0.5em;
-        text-align: center;
-        border-left: 1px solid rgba(255, 255, 255, 0.2);
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 1em;
-        padding: 0.5em;
-        background: rgba(255, 255, 255, 0.05);
-        align-items: center;
-        flex-shrink: 0;
-        justify-content: center;
-    }
+.logo:hover .card-icon {
+  transform: rotate(-15deg);
+}
 
-    .nav-button {
-        text-decoration: none;
-        color: aliceblue;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.logo-text {
+  font-family: 'OldeEnglish', sans-serif;
+  font-size: 34px;
+  display: flex;
+  gap: 2px;
+}
 
-    .btn button {
-        margin-inline: 0;
-        padding: 0.4em 0.8em;
-        border: none;
-        background: none;
-        color: aliceblue;
-        font-size: 1em;
-        font-family: cursive;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        border-radius: 0.5em;
-        width: 100%;
-        height: 100%;
-    }
+.mysta {
+  color: #6C5CE7;
+}
 
-    .btn button:hover {
-        background: rgba(41, 255, 151, 0.2);
-        transform: translateY(-2px);
-    }
+.card {
+  color: #FF6B81;
+}
 
-    .logout-btn {
-        margin-left: 0.5em;
-        padding: 0.5em;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 0.5em;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.navigation {
+  display: flex;
+  gap: 24px;
+}
 
-    .logout-btn img {
-        width: 24px;
-        height: 24px;
-        filter: invert(1);
-        transition: transform 0.3s ease;
-    }
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
 
-    .logout-btn:hover {
-        background-color: rgba(255, 0, 0, 0.2);
-        transform: translateY(-2px);
-    }
+.nav-item:hover {
+  background-color: rgba(108, 92, 231, 0.1);
+  color: #6C5CE7;
+}
 
-    .logout-btn:hover img {
-        transform: scale(1.1);
-    }
+.nav-item :deep(svg) {
+  width: 20px;
+  height: 20px;
+}
 
-    @media (max-width: 768px) {
-        header {
-            height: auto;
-            padding: 1em;
-            flex-direction: column;
-            gap: 1em;
-        }
+.difficulty-menu {
+  position: relative;
+}
 
-        .navBar {
-            width: 100%;
-            margin-right: 0;
-            flex-direction: column;
-        }
+.difficulty-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-        .btn {
-            width: 100%;
-            grid-template-columns: 1fr;
-            gap: 0.5em;
-        }
+.chevron {
+  transition: transform 0.3s ease;
+}
 
-        .facile, .difficile {
-            grid-column: 1;
-            grid-row: auto;
-            padding-top: 0;
-        }
+.difficulty-menu:hover .chevron {
+  transform: rotate(180deg);
+}
 
-        .profil {
-            grid-column: 1;
-        }
-    }
+.difficulty-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1E1E2F;
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 150px;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.difficulty-menu:hover .difficulty-dropdown {
+  display: block;
+}
+
+.difficulty-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.difficulty-item:hover {
+  background-color: rgba(108, 92, 231, 0.1);
+  color: #6C5CE7;
+}
+
+.logout-btn {
+  margin-left: 8px;
+  color: #FF6B81;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 107, 129, 0.1);
+  color: #FF6B81;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 16px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .nav-item span {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 8px;
+  }
+
+  .navigation {
+    gap: 16px;
+  }
+
+  .difficulty-dropdown {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .difficulty-item {
+    padding: 12px 16px;
+  }
+}
 </style>

@@ -178,7 +178,9 @@ const changeVolume = (event) => {
                                     :disabled="isCorrect" 
                                     placeholder="Quelle est la réponse ?"
                                 >
-                                <button type="submit" :disabled="isCorrect">&Sqrt;</button>
+                                <button type="submit" :disabled="isCorrect">
+                                    <Icon icon="mdi:check-circle" width="24" height="24" />
+                                </button>
                             </form>
                             <div v-else class="success-message">
                                 <p>{{ currentCard.name }}</p>
@@ -455,14 +457,14 @@ button {
     border: none;
     border-radius: 0.5rem;
     background: #ffc107;
-    color: #1a1a4a;
+    color: #4a3f1a;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background: #1a1a4a;
+    background: #4a3f1a;
     color: #ffc107;
 }
 
@@ -500,7 +502,7 @@ button:hover {
 }
 
 .audio-controls {
-    position: fixed;
+    /* position: fixed; */
     top: 20px;
     right: 20px;
     display: flex;

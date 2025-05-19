@@ -41,11 +41,12 @@ onMounted(() => {
 
   h1 {
     font-family: 'OldeEnglish';
+    font-weight: lighter;
     font-size: 3em;
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.979);
     text-align: center;
     padding-top: .5em;
-    background: linear-gradient(to top, #464646, #363333);
+    background: linear-gradient(to top, #1c1953, #1E1E2F);
     margin: 0;
     /* background-color: #9595ffd3; */
     width: 100%;
@@ -54,7 +55,8 @@ onMounted(() => {
     .content {
     height: 85vh;
     width: 100%;
-    background: linear-gradient(to top, #000000, #3a3838);
+    /* background: linear-gradient(to top, #000000, #3a3838); */
+    background-color: #1E1E2F;
     overflow-x: scroll; /* Garde le défilement */
     position: relative;
     -ms-overflow-style: none;  /* Cacher la scrollbar pour IE et Edge */
